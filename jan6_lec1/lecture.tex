@@ -97,21 +97,196 @@
         }
 
 \maketitle
-\newpage
 
 \tableofcontents
 \newpage
 
 % ------------------------------------------------------------------------------
-\section*{Rings}
+\section{Rings}
 $\mathbb{Z}$, +: addition, $\cdot$ multiplication \\ 
 \begin{align}
     &a+ (b+c) = (a+b) + c \text{ 0 - aditive identity} \\ 
     &(ab)c = a(bc) \\ 
     & a + b = b + a \text{  : multiplication doesn't have to be communtative} \\ 
-    &(a +b)c = ac + bc \text{ : distributinos}
+    &(a +b)c = ac + bc \text{ : distributinos} \\ 
+    &a + (-a) = 0 \text{ : additive inverse}
  \end{align}
 $1_R$- Multiplicative idenfity (if exists) \\ if there exists $1_R \in R$ then $R$ is called unital or ring with unity. \\ 
-If $ab= ba, \forall a,b \in R$ then $R$ is a commutative ring 
-\end{document}
+If $ab= ba, \forall a,b \in R$ then $R$ is a commutative ring  \\  \\ 
+$(R, +)$ is an abeligan group
+
+\underline{examples}: $(\mathbb{Z}, + , \cdot), (2\mathbb{Z}, +, \cdot)$ ring without 1, \\ $M_n(R) : n \times n $ matrices with entreis in a ring R. - Not communatitive ring.
+\\ 
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Integral Domain}
+Ring $D$ (commutative, unital) is an Integral Domain if it enjoys cancellation property: $$ab= ac \rightarrow b = c \text{ } (\text{if } a \not = 0)$$
+\begin{definition}[Equivalent]
+    \leavevmode \\ 
+    $ab = ac \longleftrightarrow ab = ac = 0 \longleftrightarrow a(b-c) =0$ \\ 
+    in other words: $$ab = 0 \rightarrow (a = 0) || (b = 0)$$
+\end{definition}
+\begin{definition}[zero divisors]
+    $$ab= 0 \text{ and } a,b \not = 0 $$ then 
+    a and b are zero divisors
+\end{definition}
+$\mathbb{Z}/6\mathbb{Z}$ (integer mod 6) or $\mathbb{Z}_6$ (same thing diff notation)
+\\ proving that this not an I.D. : 
+$2 \cdot 3 = 0$ but $2, 3 \not = 0$ \\ 
+\noindent\rule{\textwidth}{0.5pt}
+
+\section{Fields}
+A commutative ring where every element has a multiplicative inverse is called a Field.
+\begin{definition}[unit]
+    \leavevmode \\ 
+    An element $a \in R$ is called a unit if it has a multiplicative inverse
+
+\end{definition}
+(groups of unit) $(ab)^{-1}= b^{-1}a^{-1}$: units in a ring forms a a group. Commutative ring then it is an abelian group.  \\ 
+\underbar{example} $\mathbb{Z}$: units are $\{-1, 1\} \cong \mathbb{Z}_2$
+
+
+K-field, $K^{\star} = K \backslash \{0\}$ and $(K^{\star}, \cdot)$ is an abelian group  \\ \\ 
+\underbar{example}: $R = \{a + b\sqrt{2} | a,b \in \mathbb{Z}\}$ 
+
+I claim that $(\sqrt{2} + 1)$ is a unit. we show that it has a mult. inverse: $(\sqrt{2} + 1)(\sqrt{2} - 1) = 1$ and we see that $(\sqrt{2} + 1)^k$ are all distinct units for $k \in \mathbb{Z}, k \geq 0$\\
+\noindent\rule{\textwidth}{0.5pt}
+\section{Ring Homorphisms}
+maps between rings: (respect the structure of addition, multiplication)
+$\phi: R \to S$ is a homomorphism if: 
+
+\begin{enumerate}
+    \item $\phi(a+b) = \phi(a) + \phi(b) $
+    \item $\phi(ab) = \phi(a)\phi(b)$
+\end{enumerate}
+\underline{property}:\begin{enumerate}
+    \item $\phi(O_R) = O_S$ 
+    \item $\phi(-r) = -\phi(r)$ 
+    \item $\phi(R) \leq S$ (subring of S)
+\end{enumerate}
+\begin{definition}[ker]
+    
+    $$ker(\phi) = \{r \in R| \phi(r) = 0_S\}$$
+
+\end{definition}
+\begin{proposition}
+    $ker\phi$ is a subring of R
+\end{proposition}
+\begin{proof}
+    \leavevmode \\ 
+    $\phi(ab) = \phi(a) \phi(b) = 0 $ \\ 
+    $a, b \in ker\phi$   \\ 
+    $\phi(a + b) = \phi(a) + \phi(b ) = 0$ \\ 
+    $\phi(ra) = 0 $ for all $r \ in R$ 
+\end{proof}
+\begin{definition}[ideal] \leavevmode \\ 
+    $ker\phi$ is an ideal of R. \\ 
+    Ideal: subring closed under multiplcation by any element of R. \\ 
+    ideal $I$ of $R$ if $\forall a, b \in I, r \in R \rightarrow a,b\in I$
+    
+\end{definition}
+
+\begin{enumerate}
+    \item closure under addition and additive inverse $a-b \in I$ 
+    \item $ra \in I $
+\end{enumerate}
+
+\underline{Example}: $2\mathbb{Z}$ is an ideal in $\mathbb{Z}$ \\ 
+k-field: $\{0\}, R$ "not interesting ideals  contains only zero
+\\ 
+Proper Ideal of $R$ is an "interesting" ideal 
+A proper ideal is any ideal that is a strict subset of $R$ (so not $R$ itself). These are considered ``interesting'' because they:
+
+\begin{itemize}
+   \item Reveal the ring's algebraic structure
+   \item Help classify rings  
+   \item Are used to construct quotient rings
+   \item Can determine properties like primality and maximality
+\end{itemize}
+
+For example, in $\mathbb{Z}$ (integers), $(4) = \{\ldots,-8,-4,0,4,8,\ldots\}$ is an interesting proper ideal, while $\{0\}$ and $\mathbb{Z}$ are uninteresting.
+
+
+:: $I$- ideal.
+$$I \subsetneq R \leftrightarrows 1_R \not \in I \leftrightarrows I \text{ contains no units}$$
+\begin{proof}
+    Let $I \subset K$ be a proper ideal. If $a \neq 0$ and $a \in I$, then $a \cdot a^{-1} \in I$ since $I$ is an ideal. 
+    But $a \cdot a^{-1} = 1$ (multiplicative identity), therefore $1 \in I$.
+    Since $I$ is an ideal, for any $k \in K$, $k \cdot 1 = k \in I$.
+    Thus $I = K$, contradicting that $I$ is proper.
+    \end{proof}
+    \noindent\rule{\textwidth}{0.5pt}
+\section{Quotient Rings}
+$R / I $: cosets of I : 
+\begin{align*}
+    & a + I \forall a \in R \\ 
+    & (a + I) \cdot (b + I) = ab + I \\ 
+    & (a +I) + (b + I) = a + b + I   \\ 
+    & 0_{R/I}  = 0 + I = I 
+\end{align*}
+
+\begin{definition}[canonical projection]
+    \begin{align*}
+        &\pi: R \to R / I \\ 
+        &a \mapsto a + I \\ 
+        &ker\pi = I \\ 
+        &\phi: R \to S \\ 
+        &im\phi \cong R / \ker\phi
+     \end{align*}
+    
+\end{definition}
+All ring homomorphisms are canonical projections (because kernel is always the ideal.)
+\noindent\rule{\textwidth}{0.5pt}
+\section{Fields of Fraction (tbc)}
+$\mathbb{Z} \to \mathbb{Q}$, \\ D integral Domain 
+
+\begin{definition}[rational]
+     \leavevmode \\ 
+     $(a,b): \frac{a}{b},  a, b \in \mathbb{Z} $
+     \\ but we have a problem: (1,2) = (2,4) = (3,6) = ... 
+     So tequivalence classes of pairs of integersL 
+     $$(a,b) \sim (a', b') \leftrightarrows ab' = a'b$$ 
+\end{definition}
+actions on rational numbers
+\begin{enumerate}
+    \item multiplication: $(a,b) \cdot (a', b' ) = (aa', bb')$ ID is needed. 
+    \item addition: $(a,b) + (a', b') = \frac{a}{b} + \frac{a'}{b'} =\frac{ab' + a'b}{bb'} = (ab' + a'b, bb')$
+\end{enumerate}
+Why ID is needed: 
+\begin{proof}
+    The identity element (1,1) is required because:
+    
+    \begin{enumerate}
+       \item In a ring, multiplication must have an identity element
+       \item For component-wise multiplication $(a,b) \cdot (1,1) = (a \cdot 1, b \cdot 1) = (a,b)$ must hold
+       \item Without $(1,1)$, the structure would not satisfy ring axioms:
+       \begin{itemize}
+           \item Existence of multiplicative identity
+           \item Distributive property over addition 
+           \item Closure under multiplication
+       \end{itemize}
+    \end{enumerate}
+    
+    This ensures the direct product maintains ring properties from its component rings.
+    \end{proof}
+
+
+equivalence relation? 
+\begin{enumerate}
+    \item $(a,b) \sim (a,b) $ 
+    \item $(a,b) \sim (a', b') \leftrightarrow (a', b') \sim (a,b)$ 
+    \item $(a,b) \sim (a', b') $ and $(a',b') \sim (a'', b'') \rightarrow (a,b) \sim (a'', b'')$
+\end{enumerate}
+If $(a,b) \sim (a',b')$ then $\exists k_1 \in \mathbb{Q}: a-a'=k_1$ and $b-b'=k_1$ \\
+If $(a',b') \sim (a'',b'')$ then $\exists k_2 \in \mathbb{Q}: a'-a''=k_2$ and $b'-b''=k_2$ \\
+Adding equations: $(a-a')+(a'-a'')=k_1+k_2$ and $(b-b')+(b'-b'')=k_1+k_2$ \\
+Therefore $a-a''=k_1+k_2$ and $b-b''=k_1+k_2$ where $k_1+k_2 \in \mathbb{Q}$ \\
+Thus $(a,b) \sim (a'',b'')$ 
+( there is an easier way i just pasted the above from claude )
+
  
+this construction adds a multiplicative inverse to every non-zero element, making it into a field. $Q(D)$
+
+
+
+\end{document}
