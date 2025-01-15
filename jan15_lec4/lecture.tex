@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{cancel}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz} 
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{wasysym}
+
+% Define a new color for the example box
+
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Example,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{example}
+\tcolorboxenvironment{example}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Lecture 4}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{Polynomials in Fields}
+\begin{align*}
+    p(x) \in K(x)& \\ 
+    & p = f\cdot g, f, g \in K(x) \\ 
+    &\quad \quad \quad  \quad  \partial f, \partial g > 0  \\    
+    &\quad \quad\quad  \quad  \partial f, \partial g < \partial p \\    
+    &\text{ case 1 }\partial p = 2\\ 
+    &\quad\quad  p = f \cdot g \\ 
+    & \quad\quad \partial f = \partial g = 1 \\
+    &\quad\quad\text{p is irreduciable } \leftrightarrow \text{p doesn't have units in K (quadrati formula)} \\ 
+    & \text{case 2:} \partial p = 3 \\ 
+    & \quad \quad\partial f = 1, \\ 
+    & \quad \quad\partial g = 2  \\ 
+    &\quad \quad\text{p is irrudicible } \leftrightarrow \text{ p doens't have a root in K} \\ 
+    &\text{case 3:} \partial p = 4 \\ 
+    &\quad\quad \partial f = 2, \partial g = 2 \text{ or } \partial f = 1, \partial g = 3
+\end{align*}
+\begin{align*}
+    &\mathbb{Q}[x] \\ 
+    &p \in \mathbb{Z}[x] ?
+\end{align*}
+\begin{lemma}[Gauss' Lemma] \leavevmode \\ 
+    $h\in \mathbb{Z}[x] \text{ irriducible } \Rightarrow \text{ h is irreducible in }\mathbb{Q}[x]$ \\ 
+    ($\Leftarrow$): is this true? (no)\\
+    \quad \begin{align*}
+        &h = f \cdot g \\ 
+        &h = 2x+ 2 = 2(x+1) \text{ where } \partial f, \partial g < \partial h
+    \end{align*}
+    this constant is not a unit. 
+    \begin{proof}
+        \leavevmode \\ 
+        Suppose $h = f\cdot g\text{ where }f, g \in \mathbb{Q}[x]$.  Clear denominators in $f, g$. \\ 
+        There is the smallest positive integer $k$ such that $k \cdot h = \bar{f}\cdot \bar{g}$ where $\bar{f}, \bar{g} \in \mathbb{Z}[x]$ \\ 
+        There is a prime $p$ dividing $k$. Let's look at $kh = \bar{f} \bar{g}$ in $\mathbb{Z}_p(x)$\\ 
+        \quad in $\mathbb{Z}_p, 0 = \bar{f}_p \cdot \bar{g}_p$ Z: integral domain, so either one must be 0, \\  \\ 
+        $\bar{f_p} = 0 $ or $\bar{g_p} = 0 \rightarrow $ either all coefficients of $\bar{f}$ or all coefficients of $\bar{g}$ iare  divisible by $p$ $\rightarrow $ k can be reduced. contradiction. \\ 
+    \end{proof}
+\end{lemma}
+\section{Eisenstein's Criterion}
+\begin{align*}
+&h \in \mathbb{Z}[x] \\
+&h = a_0 + a_1 x + \dots + a_nx^n
+\end{align*}
+suppose that there exists a prime $p$ such that:
+\begin{enumerate}
+    \item $p | a_0, \dots, a_{n-1}$
+    \item $p \not | a_n$
+    \item $p^2 \not | a_0$
+\end{enumerate}
+$\rightarrow f$ is irreducible in $\mathbb{Q}[x]$
+\begin{proof}
+    \leavevmode \\ 
+    suffice to show that $h$ is irridubcible in $\mathbb{Z}[x]$ (Gauss lemma) \\ 
+    Suppose $h = f \cdot g,\text{ where }f,g \in \mathbb{Z} [x]$ and $\partial f, \partial g < \partial h$ \\ 
+    Let's look at $h  = fg \mod p$ \\ 
+    $h_p = f_p g_p$ \\ 
+    $a_nx^n= f_p g_p$  \\ 
+    $a_n \not \equiv 0 \mod p$ \\ 
+    look $a_0, p \mid a_o, p^2\nmid a_0$
+    \\ 
+    $\rightarrow p \text{ divides constant term} g, f \text{ or } g \text{ but not both}$ \\ \\ 
+    WLOG,  \\ 
+    $p \mid \text{ constant term of }g$ and $p\nmid \text{constant term of } g \rightarrow g_p$ is a polynomial with a constant term \\ 
+    \\ 
+    $$a_nx^n =f_p \cdot g_p$$ 
+    $\mathbb{Z}_p(x) $ UFD but we have two different factorizations.. contradiction
+\end{proof}
+ \end{document}
