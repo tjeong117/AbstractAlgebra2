@@ -12,10 +12,12 @@
 2. **Lecture 2 (Jan 8, 2025)**
    - File: `jan8_lec2.tex`
    - Topics: Ring Theory Fundamentals
+  
+3. **Missing lecture 3**
 
 3. **Lecture 4 (Jan 15, 2025)**
-   - File: `jan15_lec4.tex`
-   - Topics: Final Lecture
+
+**More Lectures Will be Added**
 
 ## Directory Structure
 ```
