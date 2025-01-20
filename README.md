@@ -35,7 +35,6 @@
 
 ## Note
 - `.DS_Store` is a macOS system file and can be ignored
-- Python script (`adfad.py`) appears unrelated to course materials
 
 ## Compilation
 To compile any lecture notes:
