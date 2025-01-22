@@ -113,7 +113,73 @@ $K[x] / f(x)$ where f(x) is irreducible. What is $[L:K]$? where $d= \delta f(x)$
     &\bar{1} = 1 + <f> \\ 
     &\bar{x} = x + <f> \text{ spn L over K} \\
     &k(x) / <f> \text{ is isomorphic to } L \\
+    &\alpha_0 + \alpha_1x + \ldots + \alpha_{d-1}x^{d-1} \in L \text{ where } \alpha_i \in K \\
+    &\alpha_0 + \alpha_1 x + \dots \alpha_{d-1}x^{d-1}\in <f> \text{ which is a contradiction the only way this can happen } \\ 
+    &\rightarrow \alpha_0 = \alpha_1 = \ldots = \alpha_{d-1} = 0 \\ 
+    &\text{ so } \bar{1}, \bar{x}, \ldots, \bar{x}^{d-1} \text{ are linearly independent} \\
+    &\text{ so } \text{dim}_K L = d \text{ so } [L:K] = d
+\end{align*}
+we take $L / K$ where $\alpha \in L$ smallest field containing K and L.\\ 
+$K[\alpha] = \text {polynomials in alpha with coefficients in K}$ \\ 
+\begin{align*}
+    &c_0 + c_1 \alpha + c_2 \alpha^2 + \ldots + c_{d-1}\alpha^{d-1} \quad \text{where } c_i \in K \\
+    &K[\alpha] \subseteq L \text{ subring of L} \\ 
+    &K(\alpha) = \text { rationals functions in } \alpha = \{\cfrac{p(\alpha)}{q(\alpha) }: q(\alpha \not = 0, p,q \in K[x])\} 
 \end{align*}
 
+$K(\alpha)$ is the smallest subfield of L \\ 
+Smallest subfield of L containing K and $\alpha$ \\
+\begin{theorem}
+    $L / K, \alpha \in L$ then \begin{enumerate}
+        \item If there is no polynomial in K[x] s.t. $p(\alpha) = 0$ then $K(\alpha) \cong K(x)$. 
+        \item if there is a polynomial in $K[x]$ such that $p(\alpha) = 0$ then $K(\alpha) = K[\alpha] \equiv \langle m(x) \rangle $
+    \end{enumerate}
+    where $m(x)$ is m-irreducible polyonimla  m(d) = 0. 
+ \\ 
+ In case (1) $\alpha$ is called transcendental over K. 
+ \\ 
+ $\mathbb{R} / \mathbb{Q}, \pi, e$ is trascendental. what about $\pi + e, \pi \cdot e$? it is not easy to show that a number is transcendental
+In Case(2) we say that alpha is algebraic over K.
+for example $\mathbb{R } / \mathbb{Q}$ algebraic number are countable. R is uncountable 
+\end{theorem}
+$L / K $ , $ d\in L$ \\ 
+$I(\alpha) = \{p \in K(x) : p(\alpha) = 0\}$, \\ 
+$ p \in I(\alpha), p\cdot r, r \in K(x) $ \\ 
+$p \cdot r(\alpha) = p(\alpha) \cdot r(\alpha) = 0$ \\ 
+case 1: $I(\alpha) = 0$ \\
+case 2: $I(\alpha) \not = 0$ \\ 
+I is principale $I = \langle f \rangle$ \\
+f makes it monic -- $m = \frac{f}{\text{lead coeff of f}}$ \\ 
+this makes uniequely defind $I(\alpha) = \langle m \rangle$ \\
+m - minimal polynomial of $\alpha$. 
 
- \end{document}
+\begin{proof}
+\begin{enumerate}
+    \item case 1: $I(\alpha) = 0$ \\ 
+            then $K(\alpha) = K(x)$ \\
+            $K(\alpha) \cong K(x)$ \\
+            $\phi: K(x) \to K(\alpha)$ \\
+            $\frac{p(x)}{q(x)} \to \frac{p(\alpha)}{q(\alpha)}$ \\
+            $\phi$ is an onto isomorphism.\\ 
+            $ker \phi = 0$? $\frac{p(x)}{q(x)} \in ker \phi$ since $p(\alpha) = 0$\\
+    \item case 2: $I(\alpha) = \langle m \rangle$ \\
+            $K(\alpha) = K[\alpha] = \langle m \rangle$ \\
+            $K(\alpha) \cong K[x] / \langle m \rangle$ \\
+            $\phi: K[x] \to K(\alpha)$ \\
+            $p(x) \to p(\alpha)$ \\
+            $\phi$ is onto \\
+            $ker \phi = \langle m \rangle$ \\
+            $p(x) \in ker \phi \implies p(\alpha) = 0 \implies p(x) = m(x) \cdot q(x)$ \\
+            $p(x) \in \langle m \rangle$ \\
+            $K[x] / \langle m \rangle \cong K(\alpha)$ 
+\end{enumerate}
+\end{proof}
+$K(x) / \langle f(x) \rangle \cong K(\alpha)$ \\ where f(x) is irreducioble. 
+
+\begin{align*}
+    &x^3 - 2 \text{ is irreducible using Eisenstein p = 2}  \\
+    &\text{the roots are } \sqrt[3]{2}, \omega \sqrt[3]{2}, \omega^2 \sqrt[3]{2} \text{ where } \omega = e^{\frac{2\pi i}{3}} \\ 
+    &\mathbb{Q}[\sqrt[3]{2}] \cong \mathbb{Q}(x) / \langle x^3 - 2 \rangle \cong \mathbb{Q}[\omega \sqrt[3]{2}] \cong \mathbb{Q}[\omega^2 \sqrt[3]{2}] \\
+\end{align*}
+Smallest field obtaining all roots of f is called splitting field of f. 
+\end{document}
