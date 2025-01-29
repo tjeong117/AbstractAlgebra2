@@ -1,0 +1,6 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}continuing from last lecture}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}intersecting lines }{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}intersecting line with circle }{2}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Intersecting two cricles }{2}{subsection.1.3}%
+\contentsline {section}{\numberline {2}Trisecting an angle}{3}{section.2}%
