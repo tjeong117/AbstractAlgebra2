@@ -149,4 +149,54 @@ We must construct $\sqrt[3]{2}$ Using Eisenstein criteria $[\mathbb{Q}(\sqrt[3]{
 $$[K_s:\mathbb{Q}] ( = 2^j)= [K_s:\mathbb{Q}(\sqrt[3]{2})] \cdot [\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}] (=3)$$ 
 \section{Trisecting an angle}
 
+\begin{align*}
+    &\cos(3\theta) = 4\cos^3(\theta) - 3\cos(\theta) \\ 
+    &3\theta \text{is described by a cubic equation} \\
+    &3\theta = \frac{\pi}{3} = 60^{\circ} \\
+    &\cos(\frac{\pi}{3}) = \frac{1}{2} \\ 
+    &\cos(\frac{\pi}{9}) = x \\ 
+    &4x^3 - 3x - \frac{1}{2} = 0 \quad \text{if this is reducible we are done} \\ 
+    &\text{if yes, then} \quad [\mathbb{Q}(\cos(\frac{\pi}{3})): \mathbb{Q}] = 3\\
+    &8x^3 - 6x - 1 = u^3 -3u -1 \\ 
+    &\text{where } x = \frac{u}{2} \quad u = 2x \\ 
+    &u^3 - 3u - 1 = (au + b)(cu^2 + du + e) \\
+    & ac 1 , be = 1 \quad a,b,c,d,e \in \mathbb{Z} \\ 
+    &a,c = \pm 1, \quad b,e = \pm 1 \\
+    &\rightarrow u = \pm 1 \text{ is a root} \quad  \text{ Gauss' lemma} \\ 
+    &\text{but this is not the case}
+\end{align*}
+\section{Splitting Fields}
+$K_, f(x) \in K(x)$
+$L$ is a splitting field of $f(x)$ if \begin{enumerate}
+    \item $f(x)$ splits into linear factors as polynomial in $L(x)$
+    \item $f(x)$ doesn't split into linear factors over any subfield of $L$
+\end{enumerate}
+We want to show that a splitting field exists and they are unique. 
+
+\begin{lemma}[Existence of Spltting fields] \leavevmode \\ 
+    $f(x), K$.. $f = q_1 \hdots q_s$ where $q_i$ is irreducible in $K(x)$ \\
+    $K_1 = K(t) / \langle q_1, (t) \rangle$ \\ 
+    $t+ \langle q_1(t) \rangle$ is a root of $q_1$ in $K_1$ \\
+    factor $f$ as a polynomial in $K_1(x)$. It will have a linear factor \\
+    $f = r_1 \hdots r_m$ if $\partial r_i > 1$ \\
+    $K_2 = K_1 / \langle r_i(x) \rangle$ \\
+    AFter at most n steps we terminate. 
+    \\ 
+    Built Field $M$ such that $f(x)$ factors into leinear factors in $M(x)$ 
+    $\leftrightarrows$ All roots of $f(x)$ lies in $M$ \\ 
+    $\alpha_1, \dots \alpha_n$ roots of $f(x)$ in $M$ \\ 
+    $L = K(\alpha_1, \dots \alpha_n) \leq M$ \\ 
+    $L-$ splitting field of $f(x)$ \\ 
+    $[L: K] \leqq n!$ where $n \partial f$ \\ 
+    $K{(\alpha_1) : K} \leq n $\\ 
+    $K{(\alpha_1, \alpha_2) : K(\alpha_1)} \leq n-1$ \\
+
+\end{lemma}
+
+$f(x) = x^3 - 1$ \\ L splitting fiekd $f(x)$ over $\mathbb{Q}$ 
+\\ 
+$L = \mathbb{Q}(\sqrt[3]{2}, w\sqrt[3]{2}, w^2\sqrt[3]{2})$ \\
+$[\mathbb{Q}(\sqrt[3]{2}): \mathbb{Q}] = 3$ \\
+$[\mathbb{Q}(w): \mathbb{Q}] = 2$ \\  
+$[L : \mathbb{Q}] = 6$
 \end{document}
