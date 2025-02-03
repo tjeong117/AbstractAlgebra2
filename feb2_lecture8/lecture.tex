@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{thmtools}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{cancel}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{framed}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{tikz} 
+\usepackage{multirow}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{wasysym}
+
+% Define a new color for the example box
+
+
+
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+\colorlet{LightGray}{black!10}
+\colorlet{LightOrange}{orange!15}
+\colorlet{LightGreen}{green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+
+
+\declaretheoremstyle[name=Theorem,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\usepackage{tcolorbox} % Add missing package
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition,]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+
+\declaretheoremstyle[name=Example,]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{example}
+\tcolorboxenvironment{example}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma,]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+
+
+
+
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% ------------------------------------------------------------------------------
+% Cover Page and ToC
+% ------------------------------------------------------------------------------
+
+\title{ \normalsize \textsc{}
+		\\ [2.0cm]
+		\HRule{1.5pt} \\
+		\LARGE \textbf{\uppercase{Lecture 8}}
+		\HRule{2.0pt} \\ [0.6cm] \LARGE{}
+		}
+
+\date{\today}
+\author{\textbf{Author} \\ 
+		Tom Jeong
+        }
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+% ------------------------------------------------------------------------------
+\section{L-spliting field}
+L-splitting field of $x^4 - 2x^2 - 10$ over $\mathbb{Q}$
+$[L:\mathbb{Q}] = ?$ \\ $\alpha_1, \alpha_2, \alpha_3, \alpha_4$ - roots of f(x) 
+$$L = \mathbb{Q}(\alpha_1, \alpha_2, \alpha_3, \alpha_4) = \mathbb{Q}[\alpha_1][\alpha_2][\alpha_3][\alpha_4]$$
+THe tower theorem shows that 
+\begin{tikzcd}
+    L = \mathbb{Q}(\alpha_1, \alpha_2, \alpha_3, \alpha_4) \arrow[d] \\
+    \mathbb{Q}(\alpha_1, \alpha_2, \alpha_3) \arrow[d] \\
+    \mathbb{Q}(\alpha_1, \alpha_2) \arrow[d] \\
+    \mathbb{Q}(\alpha_1) \cong \mathbb{Q}[x] / \langle f(x) \rangle \arrow[d]  \\
+    \mathbb{Q}
+\end{tikzcd}
+
+$[L: \mathbb{Q}] \leq n!$ where $n = \partial f$ in this case. Thus $[L:\mathbb{Q}] \mid n!$ \\ 
+\begin{align*}
+    4 & < [L:\mathbb{Q}] \leq 4! = 24 \\
+    4 &\mid [L:\mathbb{Q}]  \mid 24 \\
+    u & = x^2 \\ 
+    u^2 - 2u - 10 & = 0 \\
+    u & = \cfrac{2 \pm \sqrt{4 + 40}}{2} = 1 \pm \sqrt{11} \\
+    \alpha_1 & = \sqrt{1 + \sqrt{11}} \\
+    \alpha_2 & = -\sqrt{1 + \sqrt{11}} \\
+    \alpha_3 & = \sqrt{1 - \sqrt{11}} \\
+    \alpha_4 & = -\sqrt{1 - \sqrt{11}} \\
+\end{align*}
+$L = \mathbb{Q}(\alpha_1, \alpha_2)$
+\begin{align*}
+    \alpha_1^2 & = 1 + \sqrt{11} \\
+    \alpha_2^2 & = 1 + \sqrt{11} \\
+    -\alpha_1^2 & = -1 - \sqrt{11} \\
+    2 - \alpha_1^2 & = 1 - \sqrt{11} \\
+    \alpha_2^2 & = 2 - \alpha_1^2 \\
+   & \text{$\alpha_2 $ is a root of g} \\ 
+   x^2 - (2-\alpha_1^2) &\in \mathbb{Q}(\alpha_1) \\
+   \mathbb{Q}(\alpha_1) \subseteq \mathbb{R} \\ 
+   \alpha_2 &\not \in \mathbb{R} \quad \alpha_2 \not \in \mathbb{Q}(\alpha_1)
+\end{align*}
+
+\section{}
+$K \cong K^\prime \quad \quad \phi: K \to K^\prime$ is isomorphism \\
+$f(x) \in K[x]$ the isomorphism extends to isomorphism: $\bar{\phi}: K[x] \to K^\prime[x]$ \\ map the coefficients by $\phi$ \\ 
+$f^\prime(x) \in K^\prime[x]$ \\
+L-splitting field of $f(x)$ and $L^\prime$ splittting field of $f^\prime(x)$ \\ 
+\begin{theorem}$L \cong L^\prime$  \leavevmode \\ 
+    \begin{proof}
+        induction onf $m = \partial f$ \\
+        base case $m = 1$  and $\partial f= 1$ \\
+        $L=K \quad L^\prime = K^\prime \quad L \cong  L^\prime$ \\
+        Inductive step: 
+        \\ 
+        \begin{align}
+            m &\rightarrow m + 1 \\ 
+            \partial f & = m + 1 \\ 
+            f(x) & = q_1, \dots , q_s \\ 
+            &q_i-\text{irreducible} \\ 
+            f^\prime = q_1^\prime, \dots , q_s^\prime \\
+            K_1 &= K(x) / \langle q_1(x) \rangle \cong K_1^\prime = K^\prime(x) / \langle q_1^\prime(x) \rangle \\
+        \end{align}
+        \begin{tikzcd}
+            L \arrow[d]& &  L^\prime \arrow[d] \\
+            K_1\arrow[d] & \cong  & K_1^\prime \arrow[d] \\
+            K & \cong & K^\prime
+        \end{tikzcd}  \\ 
+        L is the splitting field of $f(x)$ over $K_1(x)$ and $L^\prime$ is the splitting field of $f^\prime(x)$ over $K_1^\prime(x)$ \\
+        L is a splitting field of $\frac{f(x)}{x - \alpha_1}$ over $K_1$ where $\alpha_1$ is a root of $q_1$ \\
+        By inductive hypothesis, since $\partial(\frac{f(x)}{x - \alpha_1}) = m$, the splitting fields $L$ and $L^\prime$ are isomorphic. \\ 
+        Thus, $L \cong L^\prime$ for polynomials of degree $m+1$, completing the inductive step.
+     \end{proof}
+    
+\end{theorem}
+\section{Finite fields with prime subfield} 
+$\mathbb{F}$ is a finite field. Char $F = p$ p is prime. \\ 
+$\mathbb{Z}_p \subseteq \mathbb{F} \quad \mathbb{Z}_p$ is prime subfield. 
+\begin{enumerate}
+    \item $|\mathbb{F}| = p^n$ for some $n $
+    \\ $\mathbb{F} / \mathbb{Z}_p$ is a field extension
+    \\ $[\mathbb{F} : \mathbb{Z}_P] = n$ (finite) then F ahs a basis over  $\mathbb{Z}_p$ \\
+    \\ Then any $w \in \mathbb{F}$ has a unique expression $$ w = \sum_{i= 1}^{n} \alpha_i v_i \quad \alpha_i \in \mathbb{Z}_p$$
+    p choices, n times. so number of choises = $p^n  = |\mathbb{F}|$ \\
+    \item $\mathbb{F}$ is the splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$ \\ 
+    $|\mathbb{F}^* | = p^n - 1 \rightarrow x \in \mathbb{F}, x \not = 0 \quad x^{p^n - 1} - 1 =0$
+    \\ 
+    $\rightarrow$ every element of $\mathbb{F}$ is n root of $x^{p^n} - x$ \\
+    $\partial (x^{p^n} - x) = p^n$ \\ 
+    $x^{p^n} - x$ has at most $p^n$  distinct roots in $\mathbb{F}$ \\
+    $\rightarrow x^{p^n} - x$ splits into distinct linear factor over $\mathbb{F}$ \\
+    and doesn't split over any subfield \\ 
+    $\rightarrow \mathbb{F }$ is the splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$ \\
+    \item The splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$ has size $p^n$ \\
+\end{enumerate}
+$\mathbb{F}$finite field then$\mathbb{F} = p^n$ and there is at most 1 field of size $p^n$ that has to be splitting filed of $x^{p^n} - x$ over $\mathbb{Z}_p$ \\
+
+now we would like to show that there is exactly one field of size $p^n$ that is the splitting field of $x^{p^n} - x$ over $\mathbb{Z}_p$ \\ (property 3)
+
+lemma for property 3.\begin{lemma}
+    $f \in K(x)$ has a multiple root r iff r is a root of $f(x)$ and $f^\prime(x)$
+\end{lemma}
+\end{document}
