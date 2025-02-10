@@ -35,7 +35,7 @@
 
 % Custom Commands
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
-
+\newcommand\Tau{\mathcal{T}}% Caligraphic T for example
 % Theorem Environments
 \declaretheoremstyle[name=Theorem]{thmsty}
 \declaretheorem[style=thmsty,numberwithin=section]{theorem}
@@ -92,6 +92,11 @@
 \tableofcontents
 \newpage
 
+\section{house keeping}
+\begin{itemize}
+    \item exam next monday
+    \item no materials from this lecture
+\end{itemize}
 % Main Content
 \section{From Previous Lecture}
 Discussion of $\mathbb{Q}(\sqrt[4]{2})$:
@@ -164,4 +169,54 @@ Question: \begin{enumerate}
     \end{proof}
     
 \end{theorem}
+ \hrulefill \\
+\subsection{relationship between subfields, subgroups, and Automorphisms}
+\begin{tikzcd}
+L \arrow[d, dotted] & Aut(L:K) \arrow[d, dotted] \\
+\text{intermediate fields} \arrow[d, dotted] & \text{subgroups} \\
+K & {}
+\end{tikzcd}
+
+$$\Gamma := \{M : K \subseteq M \subseteq L\} \rightarrow \text{Subgroups of } Aut(L:K)$$
+$$M \rightarrow \Gamma(M) = \{\sigma \in Aut(L:K) : \sigma(x) = x \text{ for all } x \in M\}$$
+
+\hrulefill \\ 
+$\Phi: \text{subgroups of } Aut(L:K) \to \text{subfields of } L/K$ \\ 
+$$H \rightarrowtail \Phi(H):= \{x \in L : \sigma(x) = x \quad  \forall \sigma \in H\}$$
+we see that $\Phi$ fixed subfield of $H$ \\ 
+We want to show that the mapping $\Phi$ is a bijection. Note that the mapping \textit{ is not always a bijection.} When is it a bijection? \\ 
+
+\begin{align*}
+    &M \xrightarrow{\Gamma} \Gamma(M) \xrightarrow{\Phi} \Phi(\Gamma(M)) = M ?\\ 
+    &H \xrightarrow{\Phi} \Phi(H) \xrightarrow{\Gamma} \Gamma(\Phi(H)) = H ?
+\end{align*}
+$H < Aut(L:K)$, $\Phi(H) = \{x \in L : \sigma(x) = x \quad \forall \sigma \in H\}$  \\ 
+\hrulefill \\ 
+$\Gamma(\Phi(H)) = \{\tau \in Aut(L:K) | \tau(x) = x \quad \forall x \in \Phi(H)\}$ 
+\begin{itemize}
+    \item we have a structure: subgroup $H$  $\rightarrow$ fixed subfield $\Gamma(\Phi(H))$ $\rightarrow$ subgroup that fixes the fixed subfield 
+    \item $H \leq \Gamma(\Phi(H)) \leq Aut(L:K)$ 
+\end{itemize}
+$M \to \Gamma(M) \to \Phi(\Gamma(M)) = M$ 
+\begin{itemize}
+    \item subfield $\to$ subgroup  that fixes the subfield $\to$ fixed subfield of this group
+    \item $M \subseteq \Phi(\Gamma(M))$
+\end{itemize}
+
+\begin{example}
+    $L = \mathbb{Q}(\sqrt{2}), K = \mathbb{Q} $ and $Aut(L:K) = \mathbb{Z}_2$ $\sigma^2 = e$ \\
+    \begin{tikzcd}[row sep=0.2em]
+        \mathbb{Q}(\sqrt{2}) \arrow[r, "\Gamma" above] & \{e\} \arrow[l, "\Phi" below, dotted] \\[2em]
+        \mathbb{Q} \arrow[r, "\Gamma" above] & \mathbb{Z}_2 \arrow[l, "\Phi" below, dotted]
+    \end{tikzcd}
+    right is gamma left is phi
+\end{example}
+\begin{example}
+    $L = \mathbb{Q}(\sqrt[4]{2}), K = \mathbb{Q}$ \\
+        \begin{tikzcd}[row sep=2em, column sep=4em]
+        \mathbb{Q}(\sqrt[4]{2}) \arrow[r, "\Gamma" above] & \{e\} \arrow[l, "\Phi" below] \\
+        \mathbb{Q}(\sqrt{2}) \arrow[rd, "\Gamma" above] & \\
+        \mathbb{Q} \arrow[r, "\Gamma" below] & \mathbb{Z}_2 \arrow[lu, "\Phi" below] \arrow[l, "\Phi" above]
+    \end{tikzcd}
+\end{example}
 \end{document}

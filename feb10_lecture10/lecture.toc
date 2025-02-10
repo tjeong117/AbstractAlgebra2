@@ -1,3 +1,5 @@
 \babel@toc {english}{}\relax 
-\contentsline {section}{\numberline {1}From Previous Lecture}{2}{section.1}%
-\contentsline {subsection}{\numberline {1.1}L/K Field Extension}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {1}house keeping}{2}{section.1}%
+\contentsline {section}{\numberline {2}From Previous Lecture}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}L/K Field Extension}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}relationship between subfields, subgroups, and Automorphisms}{3}{subsection.2.2}%
