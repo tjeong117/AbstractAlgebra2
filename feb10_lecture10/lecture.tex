@@ -1,0 +1,167 @@
+\documentclass{article}
+
+% Basic Math Packages
+\usepackage{amsmath, amsthm, amssymb, amsfonts}
+\usepackage{cancel}
+
+% Layout and Design
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{framed}
+
+% Colors and Boxes
+\usepackage[dvipsnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+
+% Document Properties
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{hyperref}  % Load last
+\usepackage{thmtools}
+\usepackage{wasysym}
+
+% Custom Colors
+\colorlet{LightGray}{White!90!Periwinkle}
+\colorlet{LightOrange}{Orange!15}
+\colorlet{LightGreen}{Green!15}
+\colorlet{LightBlue}{blue!15}
+\colorlet{LightCyan}{cyan!15}
+
+% Custom Commands
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+
+% Theorem Environments
+\declaretheoremstyle[name=Theorem]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{theorem}
+\tcolorboxenvironment{theorem}{colback=LightGray}
+
+\declaretheoremstyle[name=Definition]{thmsty}
+\declaretheorem[style=thmsty,numberwithin=section]{definition}
+\tcolorboxenvironment{definition}{colback=LightBlue}
+
+\declaretheoremstyle[name=Proposition]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{proposition}
+\tcolorboxenvironment{proposition}{colback=LightOrange}
+
+\declaretheoremstyle[name=Example]{prosty}
+\declaretheorem[style=prosty,numberlike=theorem]{example}
+\tcolorboxenvironment{example}{colback=LightOrange}
+
+\declaretheoremstyle[name=Axiom]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{axiom}
+\tcolorboxenvironment{axiom}{colback=LightGreen}
+
+\declaretheoremstyle[name=Lemma]{prcpsty}
+\declaretheorem[style=prcpsty,numberlike=theorem]{lemma}
+\tcolorboxenvironment{lemma}{colback=LightCyan}
+
+% Page Layout
+\setstretch{1.2}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+
+\begin{document}
+
+% Title Page
+\title{
+    \normalsize
+    \vspace{2.0cm}
+    \HRule{1.5pt} \\[0.4cm]
+    \LARGE \textbf{Lecture 10}
+    \HRule{2.0pt} \\[0.6cm]
+}
+\author{
+    \textbf{Author} \\
+    Tom Jeong
+}
+\date{\today}
+
+\maketitle
+\tableofcontents
+\newpage
+
+% Main Content
+\section{From Previous Lecture}
+Discussion of $\mathbb{Q}(\sqrt[4]{2})$:
+\begin{itemize}
+    \item $\sqrt[4]{2}$ is a root of $x^4 - 2$
+    \item Consider $-\sqrt[4]{2}$
+\end{itemize}
+
+Interesting maps $\mathbb{Q}(\sqrt[4]{2}) \to \mathbb{Q}(\sqrt[4]{2})$ that fix $\mathbb{Q}$:
+\begin{enumerate}
+    \item $\sqrt[4]{2} \to \sqrt[4]{2}$ (identity homomorphism)
+    \item $\sqrt[4]{2} \to -\sqrt[4]{2}$
+\end{enumerate}
+
+Intermediate subfields:
+$$\mathbb{Q} \subseteq \mathbb{Q}(\sqrt{2}) \subseteq \mathbb{Q}(\sqrt[4]{2})$$
+
+\subsection{L/K Field Extension}
+$Aut(L:K)$ or $Aut(L/K)$ or $Aut(L,K)$ = Automorphisms of $L$ fixing $K$
+
+\begin{definition}[In case you forgot]
+    Automorphisms are isomorphisms to itself:
+    $$Aut(L:K) = \{\sigma: L \to L: \sigma \text{ is an isomorphism} \text{ and } \sigma(x) = x \text{ for all } x \in K \}$$
+\end{definition}
+
+Note: $Aut(L,K)$ is a group under composition (the book calls this the Galois group of $L/K$).
+
+In our example: $$Aut(\mathbb{Q}(\sqrt[4]{2}), \mathbb{Q}) = \mathbb{Z}_2$$
+
+\hrulefill
+
+Working with finite degrees $[L:K] < \infty$:
+\begin{itemize}
+    \item $\alpha \in L$ has a minimal polynomial $f_\alpha \in K[x]$
+    \item $f_\alpha$ has same roots in $L$
+    \item For $\sigma \in Aut(K,L)$, $\sigma$ permutes the roots of $f_\alpha \in L$
+\end{itemize}
+$$f_\alpha(r) = 0 \Rightarrow f_\alpha(\sigma(r)) = 0$$
+
+\hrulefill \\ 
+For $f(x) \in K[x]$ and $f(r) = 0$, then
+\begin{align*}
+    f(\sigma(r)) &= 0 \text{ for all } \sigma \in Aut(L:K) \\
+    f(x) &= a_0 + a_1 x + \dots + a_n x^n \\
+    f(r) &= a_0 + a_1 r + \dots + a_n r^n = 0 \\
+    f(\sigma(r)) &= a_0 + a_1 \sigma(r) + \dots + a_n \sigma(r)^n = 0 \\
+    &= a_0 + a_1 \sigma(r) + \dots + a_n \sigma(r)^n = 0 \quad (\text{by the definition of } \sigma)\\
+    &= \sigma(a_0) + \sigma(a_1) \sigma(r) + \sigma(a_2) \sigma(r^2)+ \dots + \sigma(a_n) \sigma(r^n) = 0 \\
+    &= \sigma(a_0 + a_1 r + \dots + a_n r^n) = \sigma(0) = 0
+\end{align*}
+Since we have that $\sigma(r^k) = [\sigma(r)]^k$ because $\sigma(r^2) = \sigma(r) \cdot \sigma(r)$ 
+
+Question: \begin{enumerate}
+    \item How big can this group be ?
+    \item For now we will show that $|Aut(L:K)|$ is finite if $[L : K] < \infty$
+\end{enumerate}
+\begin{theorem}
+    If $[L:K] < \infty$, then $|Aut(L:K)| < \infty$
+    \begin{proof}
+        \leavevmode \\ 
+        \begin{align*}
+            &L = K(\alpha_1, \dots, \alpha_n) \\ 
+            &\sigma \in Aut(L:K)  \text{ has minimal polynomial } f_{\alpha_i}\\
+            &\forall \alpha \in Aut(L:K)  \text {is sepcific if we know } \sigma(\alpha_1), \dots, \sigma(\alpha_n) \\ 
+            &\sigma \text{ permutes the roots of } f_{\alpha_i} \text{ in } L \\
+            &\Rightarrow \forall \alpha_i \text{ there are infiniitely many possiblities for } \sigma(\alpha_i) \\
+            &\Rightarrow \text{finitely many possibilities for } \sigma \in Aut(L:K) \\
+            &\Rightarrow \text{Not every possible permutation of roots leads to a field automorphism}
+        \end{align*}
+    \end{proof}
+    
+\end{theorem}
+\end{document}
